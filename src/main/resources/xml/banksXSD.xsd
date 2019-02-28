@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="banks"
+           xmlns="banks"
+           elementFormDefault="qualified">
+
+
+    <xs:simpleType name="deposit_type" final="restriction">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="question"/>
+            <xs:enumeration value="express"/>
+            <xs:enumeration value="calculated"/>
+            <xs:enumeration value="accumulative"/>
+            <xs:enumeration value="saving"/>
+            <xs:enumeration value="metallic"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="percent">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="100"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="banks">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="bank" type='bankType' minOccurs='0'
+                            maxOccurs='unbounded'/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="bankType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="country" type="xs:string"/>
+
+            <xs:element name="deposit_types">
+
+                <xs:complexType>
+                    <xs:sequence maxOccurs="unbounded">
+                        <xs:element name="deposit_type" type="deposit_type"/>
+                    </xs:sequence>
+                </xs:complexType>
+
+            </xs:element>
+            <xs:element name="depositor" type="xs:string"/>
+            <xs:element name="account_id" type="xs:integer"/>
+            <xs:element name="amount_on_deposit" type="xs:integer"/>
+            <xs:element name="profitability" type="percent"/>
+            <xs:element name="time_constraints" type="xs:date"/>
+        </xs:sequence>
+        <xs:attribute name="bank_id" type='xs:integer'/>
+    </xs:complexType>
+</xs:schema>

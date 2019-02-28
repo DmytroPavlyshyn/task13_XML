@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<?xml-stylesheet type="text/xsl" href="beerXSLT.xsl"?>-->
+
+<banks xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:schemaLocation = "banksXSD.xsd"
+       xmlns="banks">
+    <bank bank_id="0">
+        <name>golden ale</name>
+        <country>golden ale</country>
+
+        <deposit_types>
+            <deposit_type>calculated</deposit_type>
+            <deposit_type>express</deposit_type>
+        </deposit_types>
+
+        <depositor>Jone Dove</depositor>
+        <account_id>45</account_id>
+        <amount_on_deposit>156</amount_on_deposit>
+        <profitability>100</profitability>
+        <time_constraints>2020-04-24</time_constraints>
+    </bank>
+</banks>
