@@ -3,6 +3,7 @@ package parser.dom;
 import model.Bank;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
+import parser.XMLValidator;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,11 +14,10 @@ public class DOMParserUser {
         DOMDocCreator creator = new DOMDocCreator(xml);
         Document doc = creator.getDocument();
 
-        try {
-            DOMValidator.validate(DOMValidator.createSchema(xsd),doc);
-        }catch (IOException | SAXException ex){
-            ex.printStackTrace();
+        if(!XMLValidator.validate(XMLValidator.createSchema(xsd),xml)){
+            throw new RuntimeException("validation failed");
         }
+
 
         DOMDocReader reader = new DOMDocReader();
 

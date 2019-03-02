@@ -2,10 +2,12 @@ package parser.sax;
 
 import model.Bank;
 import org.xml.sax.SAXException;
+import parser.XMLValidator;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
+import javax.xml.validation.Schema;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,8 +19,12 @@ public class SAXParserUser {
     public static List<Bank> parseBeers(File xml, File xsd){
         List<Bank> beerList = new ArrayList<>();
         try {
-            saxParserFactory.setSchema(SAXValidator.createSchema(xsd));
+            Schema schema = XMLValidator.createSchema(xsd);
+            saxParserFactory.setSchema(XMLValidator.createSchema(xsd));
 
+            if(!XMLValidator.validate(schema,xml)){
+                throw new RuntimeException("Validation failed");
+            }
             SAXParser saxParser = saxParserFactory.newSAXParser();
             SAXHandler saxHandler = new SAXHandler();
             saxParser.parse(xml, saxHandler);

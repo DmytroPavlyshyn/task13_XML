@@ -1,12 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--<?xml-stylesheet type="text/xsl" href="beerXSLT.xsl"?>-->
+<?xml-stylesheet type="text/xsl" href="bankXSLT.xsl"?>
 
-<banks xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:schemaLocation = "banksXSD.xsd"
-       xmlns="banks">
+<banks xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="banksXSD.xsd">
     <bank bank_id="0">
+        <name>Grand Hotel</name>
+        <country>Ukraine</country>
+
+        <deposit_types>
+            <deposit_type>calculated</deposit_type>
+            <deposit_type>express</deposit_type>
+        </deposit_types>
+
+        <depositor>Grand Hotel</depositor>
+        <account_id>45</account_id>
+        <amount_on_deposit>156</amount_on_deposit>
+        <profitability>100</profitability>
+        <time_constraints>2020-04-24</time_constraints>
+    </bank>
+    <bank bank_id="1">
         <name>golden ale</name>
-        <country>golden ale</country>
+        <country>Poland</country>
+
+        <deposit_types>
+            <deposit_type>calculated</deposit_type>
+            <deposit_type>express</deposit_type>
+        </deposit_types>
+
+        <depositor>Grand Hotel</depositor>
+        <account_id>45</account_id>
+        <amount_on_deposit>156</amount_on_deposit>
+        <profitability>100</profitability>
+        <time_constraints>2020-04-24</time_constraints>
+    </bank>
+    <bank bank_id="2">
+        <name>Grand Hotel</name>
+        <country>U.S.A</country>
+
+        <deposit_types>
+            <deposit_type>calculated</deposit_type>
+            <deposit_type>express</deposit_type>
+        </deposit_types>
+
+        <depositor>Jone Dove</depositor>
+        <account_id>45</account_id>
+        <amount_on_deposit>156</amount_on_deposit>
+        <profitability>100</profitability>
+        <time_constraints>2020-04-24</time_constraints>
+    </bank>
+    <bank bank_id="3">
+        <name>golden ale</name>
+        <country>Ireland</country>
 
         <deposit_types>
             <deposit_type>calculated</deposit_type>

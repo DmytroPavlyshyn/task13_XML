@@ -1,54 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           targetNamespace="banks"
-           xmlns="banks"
-           elementFormDefault="qualified">
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
 
-    <xs:simpleType name="deposit_type" final="restriction">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="question"/>
-            <xs:enumeration value="express"/>
-            <xs:enumeration value="calculated"/>
-            <xs:enumeration value="accumulative"/>
-            <xs:enumeration value="saving"/>
-            <xs:enumeration value="metallic"/>
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="percent">
-        <xs:restriction base="xs:integer">
-            <xs:minInclusive value="0"/>
-            <xs:maxInclusive value="100"/>
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:element name="banks">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="bank" type='bankType' minOccurs='0'
+    <xsd:simpleType name="deposit_type" final="restriction">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="question"/>
+            <xsd:enumeration value="express"/>
+            <xsd:enumeration value="calculated"/>
+            <xsd:enumeration value="accumulative"/>
+            <xsd:enumeration value="saving"/>
+            <xsd:enumeration value="metallic"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="percent">
+        <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="0"/>
+            <xsd:maxInclusive value="100"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:element name="banks">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="bank" type="bankType" minOccurs='0'
                             maxOccurs='unbounded'/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-    <xs:complexType name="bankType">
-        <xs:sequence>
-            <xs:element name="name" type="xs:string"/>
-            <xs:element name="country" type="xs:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:complexType name="bankType">
+        <xsd:sequence>
+            <xsd:element name="name" type="xsd:string"/>
+            <xsd:element name="country" type="xsd:string"/>
 
-            <xs:element name="deposit_types">
+            <xsd:element name="deposit_types">
 
-                <xs:complexType>
-                    <xs:sequence maxOccurs="unbounded">
-                        <xs:element name="deposit_type" type="deposit_type"/>
-                    </xs:sequence>
-                </xs:complexType>
+                <xsd:complexType>
+                    <xsd:sequence maxOccurs="unbounded">
+                        <xsd:element name="deposit_type" type="deposit_type"/>
+                    </xsd:sequence>
+                </xsd:complexType>
 
-            </xs:element>
-            <xs:element name="depositor" type="xs:string"/>
-            <xs:element name="account_id" type="xs:integer"/>
-            <xs:element name="amount_on_deposit" type="xs:integer"/>
-            <xs:element name="profitability" type="percent"/>
-            <xs:element name="time_constraints" type="xs:date"/>
-        </xs:sequence>
-        <xs:attribute name="bank_id" type='xs:integer'/>
-    </xs:complexType>
-</xs:schema>
+            </xsd:element>
+            <xsd:element name="depositor" type="xsd:string"/>
+            <xsd:element name="account_id" type="xsd:integer"/>
+            <xsd:element name="amount_on_deposit" type="xsd:integer"/>
+            <xsd:element name="profitability" type="percent"/>
+            <xsd:element name="time_constraints" type="xsd:date"/>
+        </xsd:sequence>
+        <xsd:attribute name="bank_id" type='xsd:integer'/>
+    </xsd:complexType>
+</xsd:schema>

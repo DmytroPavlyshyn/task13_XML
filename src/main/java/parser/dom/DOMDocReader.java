@@ -33,12 +33,10 @@ public class DOMDocReader {
                 bank.setDepositTypes(getDepositTypes(element.getElementsByTagName("deposit_types")));
                 bank.setDepositor(element.getElementsByTagName("depositor").item(0).getTextContent());
 
-                System.out.println(element.getElementsByTagName("account_id").item(0).getTextContent());
                 bank.setAccountId(Integer.parseInt(element.getElementsByTagName("account_id").item(0).getTextContent()));
                 bank.setAmountOnDeposit(Integer.parseInt(element.getElementsByTagName("amount_on_deposit").item(0).getTextContent()));
                 bank.setProfitability(Integer.parseInt(element.getElementsByTagName("profitability").item(0).getTextContent()));
                 bank.setTimeConstraints(LocalDate.parse(element.getElementsByTagName("time_constraints").item(0).getTextContent()));
-                System.out.println(bank);
                 banks.add(bank);
             }
         }

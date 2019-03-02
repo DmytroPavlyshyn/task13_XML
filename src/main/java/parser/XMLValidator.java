@@ -1,17 +1,13 @@
-package parser.dom;
-
-import org.w3c.dom.Document;
-import org.xml.sax.SAXException;
+package parser;
 
 import javax.xml.XMLConstants;
-import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 import java.io.File;
-import java.io.IOException;
 
-public class DOMValidator {
+public class XMLValidator {
     public static Schema createSchema(File xsd){
         Schema schema = null;
         try {
@@ -24,10 +20,13 @@ public class DOMValidator {
         return schema;
     }
 
-    public static void validate(Schema schema, Document xml) throws IOException, SAXException {
-        Validator validator = schema.newValidator();
-        validator.validate(new DOMSource(xml));
+    public static boolean validate(Schema schema, File xml)  {
+        try {
+            Validator validator = schema.newValidator();
+            validator.validate(new StreamSource(xml));
+            return true;
+        }catch (Exception e){
+            return false;
+        }
     }
-
-
 }
